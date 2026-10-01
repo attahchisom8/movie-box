@@ -1,0 +1,350 @@
+let streamResolutionResult: StreamResolutionResult = {
+  "success": true,
+  "stream": {
+    "provider": "torrentio",
+    "streamUrl": "/api/transform/torrentToStream?url=magnet%3A%3Fxt%3Durn%3Abtih%3Af57604bcb4d032763007f3f8516218c7c9dc975d%26dn%3DSkazany%2520na%25C2%25A0%25C5%259Bmier%25C4%2587_S04E03%2520%255B10Bit%2520HDR-SDR%255D%2520%255B1080p.WEB-DL.H265-AS76-FT%255D%2520%255BENG-Lektor%2520PL%255D%2520%255BAlusia%255D.mkv%26tr%3Dudp%253A%252F%252Ftracker.opentrackr.org%253A1337%252Fannounce%26tr%3Dudp%253A%252F%252Fopen.stealth.si%253A80%252Fannounce%26tr%3Dudp%253A%252F%252Ftracker.torrent.eu.org%253A451%252Fannounce&intent=watch",
+    "downloadUrl": "/api/transform/torrentToStream?url=magnet%3A%3Fxt%3Durn%3Abtih%3Af57604bcb4d032763007f3f8516218c7c9dc975d%26dn%3DSkazany%2520na%25C2%25A0%25C5%259Bmier%25C4%2587_S04E03%2520%255B10Bit%2520HDR-SDR%255D%2520%255B1080p.WEB-DL.H265-AS76-FT%255D%2520%255BENG-Lektor%2520PL%255D%2520%255BAlusia%255D.mkv%26tr%3Dudp%253A%252F%252Ftracker.opentrackr.org%253A1337%252Fannounce%26tr%3Dudp%253A%252F%252Fopen.stealth.si%253A80%252Fannounce%26tr%3Dudp%253A%252F%252Ftracker.torrent.eu.org%253A451%252Fannounce&intent=download",
+    "isEmbedded": false,
+    "mediaType": "tv",
+    "mediaInfo": {
+      "quality": "1080",
+      "format": "mkv",
+      "url": "magnet:?xt=urn:btih:f57604bcb4d032763007f3f8516218c7c9dc975d&dn=Skazany%20na%C2%A0%C5%9Bmier%C4%87_S04E03%20%5B10Bit%20HDR-SDR%5D%20%5B1080p.WEB-DL.H265-AS76-FT%5D%20%5BENG-Lektor%20PL%5D%20%5BAlusia%5D.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce",
+      "sizeInMegaBytes": "856.4",
+      "title": "Prison Break *2005-2017* [S01-S05] [10Bit HDR-SDR] [1080p.WEB-DL.H265-AS76-FT] [ENG-Lektor PL] [Alusia] [ToAlien]\nS04/Skazany na śmierć_S04E03 [10Bit HDR-SDR] [1080p.WEB-DL.H265-AS76-FT] [ENG-Lektor PL] [Alusia].mkv\n👤 4 💾 856.4 MB ⚙️ BestTorrents\n🇬🇧 / 🇵🇱",
+      "fileName": "Skazany na śmierć_S04E03 [10Bit HDR-SDR] [1080p.WEB-DL.H265-AS76-FT] [ENG-Lektor PL] [Alusia].mkv",
+      "releaseYear": "2005"
+    },
+    "quality": {
+      "resolution": "1080",
+      "format": "mkv",
+      "url": "magnet:?xt=urn:btih:f57604bcb4d032763007f3f8516218c7c9dc975d&dn=Skazany%20na%C2%A0%C5%9Bmier%C4%87_S04E03%20%5B10Bit%20HDR-SDR%5D%20%5B1080p.WEB-DL.H265-AS76-FT%5D%20%5BENG-Lektor%20PL%5D%20%5BAlusia%5D.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce"
+    },
+    "availableMediaInfos": [
+      {
+        "quality": "1080",
+        "format": "mkv",
+        "url": "magnet:?xt=urn:btih:f57604bcb4d032763007f3f8516218c7c9dc975d&dn=Skazany%20na%C2%A0%C5%9Bmier%C4%87_S04E03%20%5B10Bit%20HDR-SDR%5D%20%5B1080p.WEB-DL.H265-AS76-FT%5D%20%5BENG-Lektor%20PL%5D%20%5BAlusia%5D.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce",
+        "sizeInMegaBytes": "856.4",
+        "title": "Prison Break *2005-2017* [S01-S05] [10Bit HDR-SDR] [1080p.WEB-DL.H265-AS76-FT] [ENG-Lektor PL] [Alusia] [ToAlien]\nS04/Skazany na śmierć_S04E03 [10Bit HDR-SDR] [1080p.WEB-DL.H265-AS76-FT] [ENG-Lektor PL] [Alusia].mkv\n👤 4 💾 856.4 MB ⚙️ BestTorrents\n🇬🇧 / 🇵🇱",
+        "fileName": "Skazany na śmierć_S04E03 [10Bit HDR-SDR] [1080p.WEB-DL.H265-AS76-FT] [ENG-Lektor PL] [Alusia].mkv",
+        "releaseYear": "2005"
+      },
+      {
+        "quality": "1080",
+        "format": "mkv",
+        "url": "magnet:?xt=urn:btih:f2af5efd7bf64747acf31c4c445b4b89ceea33cf&dn=Prison%20Break%20(2005)%20-%20S04E03%20-%20Shut%20Down%20(1080p%20BluRay%20x265%20Silence).mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce",
+        "sizeInMegaBytes": "1638",
+        "title": "Prison Break (2005) Season 1-5 S01-S05 (1080p BluRay x265 HEVC 10bit AAC 5.1 Silence) [QxR]\nSeason 4/Prison Break (2005) - S04E03 - Shut Down (1080p BluRay x265 Silence).mkv\n👤 87 💾 1.6 GB ⚙️ 1337x",
+        "fileName": "Prison Break (2005) - S04E03 - Shut Down (1080p BluRay x265 Silence).mkv",
+        "releaseYear": "2005"
+      },
+      {
+        "quality": "1080",
+        "format": "mkv",
+        "url": "magnet:?xt=urn:btih:c284c7e3ab21dfe67fc6f2dd0129dc8ba142b17d&dn=Prison_Break_S04E03_x265_1080p_BluRay_30nama_30NAMA.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce",
+        "sizeInMegaBytes": "381.38",
+        "title": "Prison Break S01-S04 1080p 10bit BluRay 6CH x265 HEVC 30nama\nPrison_Break_S04E03_x265_1080p_BluRay_30nama_30NAMA.mkv\n👤 36 💾 381.38 MB ⚙️ ThePirateBay",
+        "fileName": "Prison_Break_S04E03_x265_1080p_BluRay_30nama_30NAMA.mkv",
+        "releaseYear": ""
+      },
+      {
+        "quality": "1080",
+        "format": "mkv",
+        "url": "magnet:?xt=urn:btih:fd1dae183b9f4a9b3ce5f894156cfcf161899bea&dn=Prison.Break.S04E03.1080p.10bit.BluRay.x265.HEVC.6CH-MRN.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce",
+        "sizeInMegaBytes": "497.95",
+        "title": "Prison Break S01-S05 Complete 1080p 10bit BluRay x265 HEVC 6CH-MRN\nPrison.Break.S04.1080p.10bit.BluRay.x265.HEVC.6CH-MRN/Prison.Break.S04E03.1080p.10bit.BluRay.x265.HEVC.6CH-MRN.mkv\n👤 16 💾 497.95 MB ⚙️ 1337x",
+        "fileName": "Prison.Break.S04E03.1080p.10bit.BluRay.x265.HEVC.6CH-MRN.mkv",
+        "releaseYear": ""
+      },
+      {
+        "quality": "1080",
+        "format": "mkv",
+        "url": "magnet:?xt=urn:btih:f19442a12ecdf5feaacb04306d2f33817951b74c&dn=Prison%20Break.s04e03.rus.eng.bdrip.1080p.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fopen.demonii.com%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.qu.ax%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.theoks.net%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.nyaa.vc%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.gmi.gd%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.plx.im%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker-udp.gbitt.info%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.corpscorp.online%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.bittor.pw%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.ducks.party%3A1984%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.0x7c0.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fretracker01-msk-virt.corbina.net%3A80%2Fannounce&tr=http%3A%2F%2Ftracker.dler.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker2.dler.org%3A80%2Fannounce&tr=http%3A%2F%2Ftracker.renfei.net%3A8080%2Fannounce&tr=udp%3A%2F%2Fopentor.net%3A6969&tr=http%3A%2F%2Fbt.t-ru.org%2Fann%3Fmagnet&tr=http%3A%2F%2Fbt2.t-ru.org%2Fann%3Fmagnet&tr=http%3A%2F%2Fbt3.t-ru.org%2Fann%3Fmagnet&tr=http%3A%2F%2Fbt4.t-ru.org%2Fann%3Fmagnet",
+        "sizeInMegaBytes": "4547",
+        "title": "Побег из тюрьмы: Коллекция / Prison Break: Collection [2005 - 2009 BDRip 1080p](REN-TV + С.Р.И. + NovaFilm)\nPrison Break Season 4 BDRip 1080p/Prison Break.s04e03.rus.eng.bdrip.1080p.mkv\n👤 14 💾 4.44 GB ⚙️ Rutracker\n🇬🇧 / 🇷🇺",
+        "fileName": "Prison Break.s04e03.rus.eng.bdrip.1080p.mkv",
+        "releaseYear": "2005"
+      },
+      {
+        "quality": "1080",
+        "format": "mp4",
+        "url": "magnet:?xt=urn:btih:d2c373ac1544b9f03e29709473a8c99fb4fd1669&dn=Prison.Break.S04E03.1080p.BluRay.x265-RARBG.mp4&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce",
+        "sizeInMegaBytes": "701.93",
+        "title": "Prison.Break.S04.1080p.BluRay.x265-RARBG\nPrison.Break.S04E03.1080p.BluRay.x265-RARBG.mp4\n👤 12 💾 701.93 MB ⚙️ RARBG",
+        "fileName": "Prison.Break.S04E03.1080p.BluRay.x265-RARBG.mp4",
+        "releaseYear": ""
+      },
+      {
+        "quality": "1080",
+        "format": "mkv",
+        "url": "magnet:?xt=urn:btih:396d1aa9d8cd58fe618c304b52d0d0b4b9119353&dn=Prison.Break.S04E03.1080p.BluRay.REMUX.AVC.DTS-HD.MA.5.1-NOGRP.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce",
+        "sizeInMegaBytes": "7629",
+        "title": "Prison.Break.S04.1080p.BluRay.REMUX.AVC.DTS-HD.MA.5.1-NOGRP[rartv]\nPrison.Break.S04E03.1080p.BluRay.REMUX.AVC.DTS-HD.MA.5.1-NOGRP.mkv\n👤 8 💾 7.45 GB ⚙️ RARBG",
+        "fileName": "Prison.Break.S04E03.1080p.BluRay.REMUX.AVC.DTS-HD.MA.5.1-NOGRP.mkv",
+        "releaseYear": ""
+      },
+      {
+        "quality": "1080",
+        "format": "mkv",
+        "url": "magnet:?xt=urn:btih:22e08a34aa3623594bab55fcc4af988ee2bc9f40&dn=Prison%20Break%20S04E03%20Shut%20Down%201080p%20BluRay%20x264-OFT.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce",
+        "sizeInMegaBytes": "1956",
+        "title": "Prison Break S04E03 Shut Down 1080p BluRay x264-OFT\n👤 7 💾 1.91 GB ⚙️ EXT",
+        "fileName": "Prison Break S04E03 Shut Down 1080p BluRay x264-OFT.mkv",
+        "releaseYear": ""
+      },
+      {
+        "quality": "1080",
+        "format": "mkv",
+        "url": "magnet:?xt=urn:btih:65839b5e01f3883d542ded50703fef95bdd25c5a&dn=Prison.Break.S04E03.1080p.BluRay.REMUX.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce",
+        "sizeInMegaBytes": "7916",
+        "title": "Prison Break (1-4 seasons: 1-80 series of 80 Final Escape) / 2005-2009 / RUS-ENG / Blu-Ray Remux (1080p)\nSeason 4/Prison.Break.S04E03.1080p.BluRay.REMUX.mkv\n👤 5 💾 7.73 GB ⚙️ 1337x\n🇬🇧 / 🇷🇺",
+        "fileName": "Prison.Break.S04E03.1080p.BluRay.REMUX.mkv",
+        "releaseYear": "2005"
+      },
+      {
+        "quality": "1080",
+        "format": "mkv",
+        "url": "magnet:?xt=urn:btih:52581b7e84f93958b161df25bbefbfccbd498745&dn=Prison.Break.S04E03.Shut.Down.MULTi.1080p.DSNP.WEB-DL.AAC2.0.H264-Ralf.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce",
+        "sizeInMegaBytes": "2560",
+        "title": "Prison.Break.S04.MULTi.1080p.DSNP.WEB-DL.AAC2.0.H264-Ralf\nPrison.Break.S04E03.Shut.Down.MULTi.1080p.DSNP.WEB-DL.AAC2.0.H264-Ralf.mkv\n👤 1 💾 2.5 GB ⚙️ BestTorrents\nMulti Audio / 🇬🇧 / 🇵🇱",
+        "fileName": "Prison.Break.S04E03.Shut.Down.MULTi.1080p.DSNP.WEB-DL.AAC2.0.H264-Ralf.mkv",
+        "releaseYear": ""
+      },
+      {
+        "quality": "1080",
+        "format": "mkv",
+        "url": "magnet:?xt=urn:btih:2b5c1a6b2b1b59645cde8b483d45922596938c1f&dn=Prison.Break.S04E03.Shut.Down.mkv&tr=http%3A%2F%2Fretracker.local%2Fannounce&tr=udp%3A%2F%2Fopentor.org%3A2710&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fopen.demonii.com%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.qu.ax%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.theoks.net%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.nyaa.vc%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.gmi.gd%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.plx.im%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker-udp.gbitt.info%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.corpscorp.online%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.bittor.pw%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.ducks.party%3A1984%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.0x7c0.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fretracker01-msk-virt.corbina.net%3A80%2Fannounce&tr=http%3A%2F%2Ftracker.dler.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker2.dler.org%3A80%2Fannounce&tr=http%3A%2F%2Ftracker.renfei.net%3A8080%2Fannounce&tr=udp%3A%2F%2Fopentor.net%3A6969&tr=http%3A%2F%2Fbt.t-ru.org%2Fann%3Fmagnet&tr=http%3A%2F%2Fbt2.t-ru.org%2Fann%3Fmagnet&tr=http%3A%2F%2Fbt3.t-ru.org%2Fann%3Fmagnet&tr=http%3A%2F%2Fbt4.t-ru.org%2Fann%3Fmagnet",
+        "sizeInMegaBytes": "2785",
+        "title": "Побег / Prison Break [S01-05 + Финальный побег] (2005-2017) BDRip-HEVC 1080p | D P P1\nПобег.Prison.Break.S04.BDRip-HEVC.1080p/Prison.Break.S04E03.Shut.Down.mkv\n👤 1 💾 2.72 GB ⚙️ Rutor\n🇬🇧 / 🇷🇺",
+        "fileName": "Prison.Break.S04E03.Shut.Down.mkv",
+        "releaseYear": "2005"
+      },
+      {
+        "quality": "1080",
+        "format": "mkv",
+        "url": "magnet:?xt=urn:btih:bbd03bc24048517a0c5ba50f295d06e8a97105fb&dn=Prison%20Break%204x03%20M1080.www.descargas2020.com.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce",
+        "sizeInMegaBytes": "2079",
+        "title": "Prison Break Temporada 4 [MicroHD 1080p][AC3 5.1-Castellano-AC3 5.1-Ingles+Subs][ES-EN]\nPrison Break 4x03 M1080.www.descargas2020.com.mkv\n👤 1 💾 2.03 GB ⚙️ Wolfmax4k\n🇬🇧 / 🇪🇸",
+        "fileName": "Prison Break 4x03 M1080.www.descargas2020.com.mkv",
+        "releaseYear": ""
+      },
+      {
+        "quality": "1080",
+        "format": "mkv",
+        "url": "magnet:?xt=urn:btih:cd9114a7d5d41eb26a36d951ce72f487c5018d46&dn=Prison.Break.S04E03.1080p.BluRay.x264-TFiN.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce",
+        "sizeInMegaBytes": "4065",
+        "title": "Prison.Break.S04.1080p.BluRay.x264-MIXED[rartv]\nPrison.Break.S04E03.1080p.BluRay.x264-TFiN.mkv\n👤 1 💾 3.97 GB ⚙️ RARBG",
+        "fileName": "Prison.Break.S04E03.1080p.BluRay.x264-TFiN.mkv",
+        "releaseYear": ""
+      },
+      {
+        "quality": "720",
+        "format": "mkv",
+        "url": "magnet:?xt=urn:btih:8c930be1c96388a6bf32dfd6cbd42ef2181350ff&dn=Prison%20Break%20S04E03%20Shut%20Down%20720p%20DSNP%20WEB-DL%20DD%205%201%20H%20264-playWEB.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce",
+        "sizeInMegaBytes": "1280",
+        "title": "Prison Break S04E03 Shut Down 720p DSNP WEB-DL DD 5 1 H 264-playWEB\n👤 22 💾 1.25 GB ⚙️ ThePirateBay",
+        "fileName": "Prison Break S04E03 Shut Down 720p DSNP WEB-DL DD 5 1 H 264-playWEB.mkv",
+        "releaseYear": ""
+      },
+      {
+        "quality": "720",
+        "format": "mp4",
+        "url": "magnet:?xt=urn:btih:b9d5733e273c0debe91bfff507392f40b2517fd6&dn=Prison%20Break%20S04E03%20Shut%20Down%20720p%20BluRay%20x265-HaxxOr.mp4&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce",
+        "sizeInMegaBytes": "166.87",
+        "title": "Prison Break S04 Season 4 Complete 720p BluRay x265-HaxxOr\nPrison Break S04E03 Shut Down 720p BluRay x265-HaxxOr.mp4\n👤 14 💾 166.87 MB ⚙️ ThePirateBay",
+        "fileName": "Prison Break S04E03 Shut Down 720p BluRay x265-HaxxOr.mp4",
+        "releaseYear": ""
+      },
+      {
+        "quality": "720",
+        "format": "mkv",
+        "url": "magnet:?xt=urn:btih:8791a94181bbd4d7c080d7883a1e9138defaee45&dn=Prison%20Break%20S04e03%20Shut%20Down.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce",
+        "sizeInMegaBytes": "1116",
+        "title": "Prison Break 2005 Season 4 Complete 720p AMZN WEB-DL x264 [i_c]\nPrison Break S04e03 Shut Down.mkv\n👤 4 💾 1.09 GB ⚙️ 1337x",
+        "fileName": "Prison Break S04e03 Shut Down.mkv",
+        "releaseYear": "2005"
+      },
+      {
+        "quality": "720",
+        "format": "mkv",
+        "url": "magnet:?xt=urn:btih:c39f52a2f48c399bd2c0204d1f4bf89af3a2e206&dn=Prison%20Break%20S04E03%20720p%20BluRay%20x265%20OPUS%202.0-HP.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce",
+        "sizeInMegaBytes": "281.42",
+        "title": "Prison Break Season 4 (S04) 720p BluRay x265 OPUS 2.0-HP\nPrison Break S04E03 720p BluRay x265 OPUS 2.0-HP.mkv\n👤 200 💾 281.42 MB ⚙️ 1337x",
+        "fileName": "Prison Break S04E03 720p BluRay x265 OPUS 2.0-HP.mkv",
+        "releaseYear": ""
+      },
+      {
+        "quality": "720",
+        "format": "mkv",
+        "url": "magnet:?xt=urn:btih:c8ec16032a7ef2d7ef9530f9315133ee8731b313&dn=Prison.Break.S04E03.BluRay.720p.x264.AC3.-Rock.mkv&tr=http%3A%2F%2Fbt3.t-ru.org%2Fann%3Fmagnet&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fopen.demonii.com%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.qu.ax%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.theoks.net%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.nyaa.vc%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.gmi.gd%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.plx.im%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker-udp.gbitt.info%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.corpscorp.online%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.bittor.pw%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.ducks.party%3A1984%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.0x7c0.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fretracker01-msk-virt.corbina.net%3A80%2Fannounce&tr=http%3A%2F%2Ftracker.dler.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker2.dler.org%3A80%2Fannounce&tr=http%3A%2F%2Ftracker.renfei.net%3A8080%2Fannounce&tr=udp%3A%2F%2Fopentor.net%3A6969&tr=http%3A%2F%2Fbt.t-ru.org%2Fann%3Fmagnet&tr=http%3A%2F%2Fbt2.t-ru.org%2Fann%3Fmagnet&tr=http%3A%2F%2Fbt4.t-ru.org%2Fann%3Fmagnet",
+        "sizeInMegaBytes": "2243",
+        "title": "Побег из тюрьмы: Коллекция / Prison Break: Collection [2005 - 2009 BDRip 720p]\nPrison Break S04 BluRay 720p x264 AC3/Prison.Break.S04E03.BluRay.720p.x264.AC3.-Rock.mkv\n👤 3 💾 2.19 GB ⚙️ Rutracker\n🇷🇺",
+        "fileName": "Prison.Break.S04E03.BluRay.720p.x264.AC3.-Rock.mkv",
+        "releaseYear": "2005"
+      },
+      {
+        "quality": "720",
+        "format": "mkv",
+        "url": "magnet:?xt=urn:btih:b9ae7de6e2ef53ab8e14ced8394c1900bd2c762d&dn=Prison.Break.S04E03.720p.BluRay-%5Btvbeasts.con%5D.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce",
+        "sizeInMegaBytes": "316.3",
+        "title": "Prison Break Complete Season 1-5 BluRay 720p TVBeastS\nPrison Break Season 4 720p [tvbeasts.com]/Prison.Break.S04E03.720p.BluRay-[tvbeasts.con].mkv\n👤 1 💾 316.3 MB ⚙️ 1337x",
+        "fileName": "Prison.Break.S04E03.720p.BluRay-[tvbeasts.con].mkv",
+        "releaseYear": ""
+      },
+      {
+        "quality": "720",
+        "format": "mkv",
+        "url": "magnet:?xt=urn:btih:0df6713d15eda0e40962b29edee85d99cb088adf&dn=Prison.Break.S04E03.720p.MKVTV.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce",
+        "sizeInMegaBytes": "449.54",
+        "title": "Prison Break Season 1-5 Complete 720p x264 MKVTV\nPrison.Break.S04E03.720p.MKVTV.mkv\n👤 1 💾 449.54 MB ⚙️ ThePirateBay",
+        "fileName": "Prison.Break.S04E03.720p.MKVTV.mkv",
+        "releaseYear": ""
+      },
+      {
+        "quality": "720",
+        "format": "mp4",
+        "url": "magnet:?xt=urn:btih:cd147f1518862960c71014c0604ec12e4ae6af0c&dn=Prison.Break.S04E03.mp4&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce",
+        "sizeInMegaBytes": "258.47",
+        "title": "Prison Break: 4ª Temporada (2009) BDRip 720p Dublado\nPrison.Break.S04E03.mp4\n👤 500 💾 258.47 MB ⚙️ BluDV\n🇵🇹",
+        "fileName": "Prison.Break.S04E03.mp4",
+        "releaseYear": "2009"
+      },
+      {
+        "quality": "360",
+        "format": "mp4",
+        "url": "magnet:?xt=urn:btih:180e9680478dfbf3354f9d62477a51e56939f831&dn=Prison%20Break%20S04e03%20Shut%20Down.mp4&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce",
+        "sizeInMegaBytes": "211.68",
+        "title": "Prison Break Season 1 2 3 4 5 - threesixtyp\nPrison Break S04 (360p re-webrip)/Prison Break S04e03 Shut Down.mp4\n👤 1 💾 211.68 MB ⚙️ ThePirateBay",
+        "fileName": "Prison Break S04e03 Shut Down.mp4",
+        "releaseYear": ""
+      },
+      {
+        "quality": "720",
+        "format": "avi",
+        "url": "magnet:?xt=urn:btih:96d311881bc20979ecfd2c3cd13d174c1f0902f4&dn=Prison%20Break%204x03%20Fr.avi&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce",
+        "sizeInMegaBytes": "353.57",
+        "title": "Prison Break Saison 4 FRENCH HDTV\nPrison Break 4x03 Fr.avi\n👤 52 💾 353.57 MB ⚙️ Torrent9\n🇫🇷",
+        "fileName": "Prison Break 4x03 Fr.avi",
+        "releaseYear": ""
+      },
+      {
+        "quality": "720",
+        "format": "avi",
+        "url": "magnet:?xt=urn:btih:1ccd38d695f6fa2b5767eff9ab2d164ad00ee5bc&dn=s04e03_Shut.Down.avi&tr=http%3A%2F%2Fbt3.t-ru.org%2Fann%3Fmagnet&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fopen.demonii.com%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.qu.ax%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.theoks.net%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.nyaa.vc%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.gmi.gd%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.plx.im%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker-udp.gbitt.info%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.corpscorp.online%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.bittor.pw%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.ducks.party%3A1984%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.0x7c0.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fretracker01-msk-virt.corbina.net%3A80%2Fannounce&tr=http%3A%2F%2Ftracker.dler.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker2.dler.org%3A80%2Fannounce&tr=http%3A%2F%2Ftracker.renfei.net%3A8080%2Fannounce&tr=udp%3A%2F%2Fopentor.net%3A6969&tr=http%3A%2F%2Fbt.t-ru.org%2Fann%3Fmagnet&tr=http%3A%2F%2Fbt2.t-ru.org%2Fann%3Fmagnet&tr=http%3A%2F%2Fbt4.t-ru.org%2Fann%3Fmagnet",
+        "sizeInMegaBytes": "752.39",
+        "title": "Побег из тюрьмы / Prison Break / Сезон: 1-5 из 5 / Серии: 1-90 из 90 [2005-2017 BDRip WEB-DLRip] Dub (Ren-TV) + MVO (Jaskier)\nSeason_04/s04e03_Shut.Down.avi\n👤 13 💾 752.39 MB ⚙️ Rutracker\n🇷🇺",
+        "fileName": "s04e03_Shut.Down.avi",
+        "releaseYear": "2005"
+      },
+      {
+        "quality": "720",
+        "format": "avi",
+        "url": "magnet:?xt=urn:btih:af59e0384ff6b9ea5ecce99da95958c298fe888d&dn=Prison%20Break%204x03%20Fr.avi&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce",
+        "sizeInMegaBytes": "353.57",
+        "title": "Prison Break Saison 4 FRENCH HDTV\nPrison Break 4x03 Fr.avi\n👤 1 💾 353.57 MB ⚙️ Torrent9\n🇫🇷",
+        "fileName": "Prison Break 4x03 Fr.avi",
+        "releaseYear": ""
+      },
+      {
+        "quality": "720",
+        "format": "avi",
+        "url": "magnet:?xt=urn:btih:237c4866a5935d9ce8fa4dbefe93ae741eb76c4f&dn=s04e03_Shut.Down.avi&tr=http%3A%2F%2Fretracker.local%2Fannounce&tr=udp%3A%2F%2Fopentor.org%3A2710&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fopen.demonii.com%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.qu.ax%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.theoks.net%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.nyaa.vc%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.gmi.gd%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.plx.im%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker-udp.gbitt.info%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.corpscorp.online%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.bittor.pw%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.ducks.party%3A1984%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.0x7c0.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fretracker01-msk-virt.corbina.net%3A80%2Fannounce&tr=http%3A%2F%2Ftracker.dler.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker2.dler.org%3A80%2Fannounce&tr=http%3A%2F%2Ftracker.renfei.net%3A8080%2Fannounce&tr=udp%3A%2F%2Fopentor.net%3A6969&tr=http%3A%2F%2Fbt.t-ru.org%2Fann%3Fmagnet&tr=http%3A%2F%2Fbt2.t-ru.org%2Fann%3Fmagnet&tr=http%3A%2F%2Fbt3.t-ru.org%2Fann%3Fmagnet&tr=http%3A%2F%2Fbt4.t-ru.org%2Fann%3Fmagnet",
+        "sizeInMegaBytes": "752.39",
+        "title": "Побег / Prison Break [S01-05 + Финальный побег] (2005-2017) BDRip WEB-DLRip | Ren-TV Jaskier\nSeason_04/s04e03_Shut.Down.avi\n👤 1 💾 752.39 MB ⚙️ Rutor\n🇷🇺",
+        "fileName": "s04e03_Shut.Down.avi",
+        "releaseYear": "2005"
+      },
+      {
+        "quality": "720",
+        "format": "avi",
+        "url": "magnet:?xt=urn:btih:bf00fe2f3ab8c3966b0bfe15a4809083c73474bd&dn=Prison%20Break.s04e03.bdrip.avi&tr=http%3A%2F%2Fretracker.local%2Fannounce&tr=udp%3A%2F%2Fopentor.org%3A2710&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fopen.demonii.com%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.qu.ax%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.theoks.net%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.nyaa.vc%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.gmi.gd%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.plx.im%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker-udp.gbitt.info%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.corpscorp.online%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.bittor.pw%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.ducks.party%3A1984%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.0x7c0.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fretracker01-msk-virt.corbina.net%3A80%2Fannounce&tr=http%3A%2F%2Ftracker.dler.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker2.dler.org%3A80%2Fannounce&tr=http%3A%2F%2Ftracker.renfei.net%3A8080%2Fannounce&tr=udp%3A%2F%2Fopentor.net%3A6969&tr=http%3A%2F%2Fbt.t-ru.org%2Fann%3Fmagnet&tr=http%3A%2F%2Fbt2.t-ru.org%2Fann%3Fmagnet&tr=http%3A%2F%2Fbt3.t-ru.org%2Fann%3Fmagnet&tr=http%3A%2F%2Fbt4.t-ru.org%2Fann%3Fmagnet",
+        "sizeInMegaBytes": "450.89",
+        "title": "Побег из тюрьмы / Prison Break [S01-04] (2005-2009) BDRip | D\nPrison Break_S04/Prison Break.s04e03.bdrip.avi\n👤 1 💾 450.89 MB ⚙️ Rutor\n🇷🇺",
+        "fileName": "Prison Break.s04e03.bdrip.avi",
+        "releaseYear": "2005"
+      },
+      {
+        "quality": "720",
+        "format": "mkv",
+        "url": "magnet:?xt=urn:btih:24b5e35a2bf38b9de87aa09e053fa6daada2088d&dn=Episode%2003%20-%20Shut%20Down.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce",
+        "sizeInMegaBytes": "117.93",
+        "title": "Prison Break Season 1-4 (With Subtitles)\nPrision Break Season 4/Episode 03 - Shut Down.mkv\n👤 5 💾 117.93 MB ⚙️ ThePirateBay",
+        "fileName": "Episode 03 - Shut Down.mkv",
+        "releaseYear": ""
+      }
+    ]
+  },
+  "intent": "download"
+}
+
+const streamResolutionResult2 = {
+  "success": true,
+  "stream": {
+    "provider": "archive",
+    "streamUrl": "https://archive.org/download/CrankDat/crankdatspiderman.mp4",
+    "downloadUrl": "https://archive.org/download/CrankDat/crankdatspiderman.mp4",
+    "isEmbedded": false,
+    "mediaType": "movie",
+    "mediaInfo": {
+      "quality": "240",
+      "format": "mp4",
+      "url": "https://archive.org/download/CrankDat/crankdatspiderman.mp4",
+      "duration": "192.19",
+      "sizeInMegaBytes": "9",
+      "releaseYear": "2007",
+      "title": "Crank Dat Spiderman OFFICIAL MUSIC VIDEO"
+    },
+    "quality": {
+      "resolution": "240",
+      "format": "mp4",
+      "url": "https://archive.org/download/CrankDat/crankdatspiderman.mp4"
+    },
+    "availableMediaInfos": [
+      {
+        "quality": "240",
+        "format": "mp4",
+        "url": "https://archive.org/download/CrankDat/crankdatspiderman.mp4",
+        "duration": "192.19",
+        "sizeInMegaBytes": "9",
+        "releaseYear": "2007",
+        "title": "Crank Dat Spiderman OFFICIAL MUSIC VIDEO"
+      },
+      {
+        "quality": "304",
+        "format": "ogv",
+        "url": "https://archive.org/download/CrankDat/crankdatspiderman.ogv",
+        "duration": "192.2",
+        "sizeInMegaBytes": "13",
+        "releaseYear": "2007",
+        "title": "Crank Dat Spiderman OFFICIAL MUSIC VIDEO"
+      },
+      {
+        "quality": "240",
+        "format": "mp4",
+        "url": "https://archive.org/download/CrankDat/crankdatspiderman_512kb.mp4",
+        "duration": "192.2",
+        "sizeInMegaBytes": "13",
+        "releaseYear": "2007",
+        "title": "Crank Dat Spiderman OFFICIAL MUSIC VIDEO"
+      }
+    ]
+  },
+  "intent": "download"
+}
+
+
+
+
+console.log(JSON.stringify({result: streamResolutionResult2}, null, 2));
+const sortedStreamResolutionResult = streamResultManager(
+	streamResolutionResult2 as StreamResolutionResult, {
+		resolution: "720",
+    size: "< 512mb",
+    format: "ogv"
+	}
+);
+console.log();
+console.log();
+console.log(JSON.stringify({sortedResult: sortedStreamResolutionResult}, null, 2));
+

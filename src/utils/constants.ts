@@ -103,8 +103,8 @@ for (const category of Object.values(GENRE_LIB)) {
 
 
 // TMDB DEFAULT URL
-export const TMDB_MOVIE_BASE_URL = 'https://api.tmdb.org/3' as const;
-export const TMDB_IMAGE_BASE_URL = 'https://image.tmdb.org/t/p' as const;
+export const TMDB_MOVIE_BASE_URL = 'https://api.themoviedb.org/3' as const;
+export const TMDB_IMAGE_BASE_URL = 'https://image.themoviedb.org/t/p' as const;
 
 
 // Here we handletmdb image connfigutation
@@ -136,4 +136,4 @@ export const ACCESSIBILTY_PRESET_THEME: AccessibityTheme = {
 	fontWeight: 700,
 	fontFamily: ['sans', 'OPenDyslexic'],
 	letterSpacing: 1.5,
-}
+} as const;

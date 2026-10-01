@@ -3,7 +3,7 @@
  * data format of the movie in varios situations
  */
 
-export interface Movie {
+export interface TmdbMedia {
 	id: string;
 	title: string;
 	overview: string;
@@ -12,14 +12,14 @@ export interface Movie {
 	voteAverage: string;
 	releaseYear: string;
 	originalCountry: string[];
-	genreIds: ids[];
+	genreIds: string[];
 	trailerKey?: string;
 }
 
 export type RegionCode = 'NG' | 'IN' | 'BG' | 'US' | 'FR' | 'AU';
 
-export interface MovieCategory {
-	id; string;
+export interface TmdbMediaCategory {
+	id: string;
 	label: string;
 	type: 'story' | 'vibe' | 'setting';
 	tmdbGenreId: string;

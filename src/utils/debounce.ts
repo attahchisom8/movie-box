@@ -16,7 +16,6 @@
  * Rrturn: a function whose return type is anythihg
  */
 
-import { BlockquoteHTMLAttributes } from "react";
 
 interface Option {
 	leading?: boolean;
@@ -58,7 +57,7 @@ export const debounce = <T extends (...args: any[]) => any>(
 				lastArgs = null;
 			}
 		}, delay);
-	}
+	};
 
 	fn.cancel = () => {
 		if (timeRef) {

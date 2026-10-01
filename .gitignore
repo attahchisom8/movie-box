@@ -39,3 +39,25 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+
+# all filenames of this making
+file_arch2.json
+file_arch.json
+file_arch_trimmed_search.json
+file_arch_trimmed_search_metadata.json
+file_cn.json
+file.json
+file_tmdb.json
+file_tmdb_tv_data
+file_tmdb_tv_data_season
+file_tmdb_tv_data_season_episode
+file_tmdb_tv_external_ids
+file_tmdb_tv_season_episode_external_ids
+file_tmdb_tv_season_external_ids
+file_tmdb_with_id
+file_tmdb_with_id_vvideos
+file_tmdn_external_ids
+file_torrent
+file_torrent_season
+file_torrent_season_episode

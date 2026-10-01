@@ -1,0 +1,78 @@
+Regarding the api engine architecture we discussed so far i realized the real name
+o the engine should be media engine or stream envgine as there is the api dir in src/app
+to handle everything regarding api
+
+streamEnGINE
+-------------
+Objectives
+i) serve as minniature proxy router that route request to the appropraite stream providers
+ii) Ensure a clean stream is provided to the user
+ensure no invalid sources get to the user
+iii) send appropraite message and svg to indicate stream resolution error
+
+RESPONSIBILITIES
+----------------
+1) The engine is a file-parser: it checks usr media comfiguration to determine what videos
+are sent to thr user,
+
+2) The engine is an error formater and mailer: it format and mails human readable message
+to users
+
+3) Resolution Result filter: it filters off the resolution result array to ensure
+user end up with a list of all working sources
+
+4) Performance and Reliability handler: ensures no query exceeds a given time rate like
+300ms etc
+
+Error Lpgger: it logs all errors to a file for future reference and t0 know which
+sources are working etc
+
+			DATA FLOW
+			----------
+firstly we are in a page where movies are held in grid or single file view.
+the user now clicks one of these posters amd he is immediaately takem to a page
+where this movie informationn are displayed and hr sees a frame where he can see
+the vidoe with a click icon or download button if click any of thesre two the data 
+flow begins
+
+so we have the following file structure
+Engine
+search-engine, stream-engine and monitoring
+
+under stream-engine we have the following filters
+a) fileParser.section.ts b) reliableCalls.section.ts c) and peharps ErrorBase.section.ts
+d) StreamResultManager.section.ts
+
+under monitoring we have 
+errorLogger.log amd analytics (moat searched mpvies, most clicked resolutins etc)
+update (cron job to retrieve most trending or new movies daily)
+
+1) UI sends data
+2) Engine tak
+	i) engine takes this data and resolve it into the appropraite media category
+	ii) query the appropraite provider based on user intent amd media type
+	iii) reliabity chsck is performed on the query
+	iv) if an error occur it is logged in the log file errorLogger amd clean message
+	is sent to the user either directly or errorBase section
+	v) the streamResolutionResult array is sent to the filter section where it is filtered
+		 based on user configurations from the ffile mediaConig,conf which contain the Object
+		 with the following fields resolution format and fileSize if no data is in this file
+		 we simply use the default config the resulting array is again filtered by pinging the urls
+		 in the avalible media info and remove any stream whose url is not wprking
+		 we again ping the url based on the users goegraphical locatiom to determine if
+		 the url is blocked in their region.
+		if an error occur during this process we log the error to the log file snd send a human
+		readable message to the user otherwise we return the resulting filtered array with
+		 all sources working as expected
+
+		 How sound is this architecture any improment should i indeed make an errorabase.section.ts
+		 or should i send an error directly immediaately an error occurs
+
+		 pls draft or draw a techmical architecture based off my own if it missing anything
+
+		 the logger filr amd configuration file created whre would they be? in the root of
+		 my projrct?
+		 
+
+,
+

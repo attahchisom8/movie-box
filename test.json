@@ -1,0 +1,114 @@
+{
+  "result": {
+    "success": true,
+    "stream": {
+      "provider": "archive",
+      "streamUrl": "https://archive.org/download/CrankDat/crankdatspiderman.mp4",
+      "downloadUrl": "https://archive.org/download/CrankDat/crankdatspiderman.mp4",
+      "isEmbedded": false,
+      "mediaType": "movie",
+      "mediaInfo": {
+        "quality": "240",
+        "format": "mp4",
+        "url": "https://archive.org/download/CrankDat/crankdatspiderman.mp4",
+        "duration": "192.19",
+        "sizeInMegaBytes": "9",
+        "releaseYear": "2007",
+        "title": "Crank Dat Spiderman OFFICIAL MUSIC VIDEO"
+      },
+      "quality": {
+        "resolution": "240",
+        "format": "mp4",
+        "url": "https://archive.org/download/CrankDat/crankdatspiderman.mp4"
+      },
+      "availableMediaInfos": [
+        {
+          "quality": "240",
+          "format": "mp4",
+          "url": "https://archive.org/download/CrankDat/crankdatspiderman.mp4",
+          "duration": "192.19",
+          "sizeInMegaBytes": "9",
+          "releaseYear": "2007",
+          "title": "Crank Dat Spiderman OFFICIAL MUSIC VIDEO"
+        },
+        {
+          "quality": "304",
+          "format": "ogv",
+          "url": "https://archive.org/download/CrankDat/crankdatspiderman.ogv",
+          "duration": "192.2",
+          "sizeInMegaBytes": "13",
+          "releaseYear": "2007",
+          "title": "Crank Dat Spiderman OFFICIAL MUSIC VIDEO"
+        },
+        {
+          "quality": "240",
+          "format": "mp4",
+          "url": "https://archive.org/download/CrankDat/crankdatspiderman_512kb.mp4",
+          "duration": "192.2",
+          "sizeInMegaBytes": "13",
+          "releaseYear": "2007",
+          "title": "Crank Dat Spiderman OFFICIAL MUSIC VIDEO"
+        }
+      ]
+    },
+    "intent": "download"
+  }
+}
+
+
+{
+  "sortedResult": {
+    "success": true,
+    "stream": {
+      "provider": "archive",
+      "streamUrl": "https://archive.org/download/CrankDat/crankdatspiderman.ogv",
+      "downloadUrl": "https://archive.org/download/CrankDat/crankdatspiderman.ogv",
+      "isEmbedded": false,
+      "mediaType": "movie",
+      "mediaInfo": {
+        "quality": "304",
+        "format": "ogv",
+        "url": "https://archive.org/download/CrankDat/crankdatspiderman.ogv",
+        "duration": "192.2",
+        "sizeInMegaBytes": "13",
+        "releaseYear": "2007",
+        "title": "Crank Dat Spiderman OFFICIAL MUSIC VIDEO"
+      },
+      "quality": {
+        "resolution": "304",
+        "format": "ogv",
+        "url": "https://archive.org/download/CrankDat/crankdatspiderman.ogv"
+      },
+      "availableMediaInfos": [
+        {
+          "quality": "304",
+          "format": "ogv",
+          "url": "https://archive.org/download/CrankDat/crankdatspiderman.ogv",
+          "duration": "192.2",
+          "sizeInMegaBytes": "13",
+          "releaseYear": "2007",
+          "title": "Crank Dat Spiderman OFFICIAL MUSIC VIDEO"
+        },
+        {
+          "quality": "240",
+          "format": "mp4",
+          "url": "https://archive.org/download/CrankDat/crankdatspiderman.mp4",
+          "duration": "192.19",
+          "sizeInMegaBytes": "9",
+          "releaseYear": "2007",
+          "title": "Crank Dat Spiderman OFFICIAL MUSIC VIDEO"
+        },
+        {
+          "quality": "240",
+          "format": "mp4",
+          "url": "https://archive.org/download/CrankDat/crankdatspiderman_512kb.mp4",
+          "duration": "192.2",
+          "sizeInMegaBytes": "13",
+          "releaseYear": "2007",
+          "title": "Crank Dat Spiderman OFFICIAL MUSIC VIDEO"
+        }
+      ]
+    },
+    "intent": "download"
+  }
+}
