@@ -14,6 +14,8 @@ export type StreamEngineErrorTypes = "TIMEOUT_TYPE_ERROR" |
 "PROVIDER_FAILED_TYPE_ERROR" | "CONFIG_READ_TYPE_ERROR" | "NO_STREAM_FOUND_TYPE_ERROR"
 | "UNKNOWN_STREAM_TYPE_ERROR" | "CONFIG_WRITE_TYPE_ERROR";
 
+export type ErrorLevel = "INFO" | "WARN" | "ERROR" | "SEVERE";
+
 
 export interface StreamEngineErrorProperties {
 	code: StreamErrorCode;
@@ -21,6 +23,7 @@ export interface StreamEngineErrorProperties {
 	userFriendlyMessage: string;
 	originalError: unknown;
 	type: StreamEngineErrorTypes;
+	level?: ErrorLevel;
 
 }
 
@@ -33,6 +36,7 @@ export class StreamEngineError extends Error {
 	public userFriendlyMessage: string;
 	public originalError: unknown;
 	public type: StreamEngineErrorTypes;
+	public level: ErrorLevel;
 
 	constructor(props: StreamEngineErrorProperties) {
 		super(props.devMessage);
@@ -41,6 +45,7 @@ export class StreamEngineError extends Error {
 		this.userFriendlyMessage = props.userFriendlyMessage;
 		this.originalError = props.originalError;
 		this.type = props.type;
+		this.level = props.level ?? "ERROR";
 	}
 }
 

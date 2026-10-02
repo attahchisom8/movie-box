@@ -4,11 +4,29 @@ import { streamResultManager } from "./streamResultManager.section";
 import { errorBase } from "./errorBase.section";
 import * as streamApi from "@/utils/stream"
 import { MediaCategory } from "@/types/media.types";
-import { ResolvedStream, StreamResolutionResult } from "@/types/stream.types";
-import { ManagedErrorResult, StreamErrorCode } from "@/types/error.types";
-import { Cedarville_Cursive } from "next/font/google";
+import { ResolvedStream, StreamProvider, StreamResolutionResult } from "@/types/stream.types";
+import { ErrorLevel, StreamErrorCode, StreamEngineError } from "@/types/error.types";
 
 
+
+
+/**
+ * extractReasonFromError - This aimple function extracts error messages from
+ * raw error
+ * @param err: the  given error
+ * @param defaultMessage: the fallback error message
+ * @returns 
+ */
+
+const extractReasonFromError = (err: unknown, defaultMessage: string): string => {
+	if (err instanceof Error)
+		return err.message;
+
+	if (typeof err === "string")
+		return err;
+
+	return defaultMessage;
+}
 
 
 /**
@@ -27,12 +45,14 @@ export const streamEngine = async (
 	const configData = await fileParserSection.readFromFile();
 	let stream: StreamResolutionResult | null = null;
 	let resolvedStream: ResolvedStream | null = null;
+	const failedProviders: {provider: StreamProvider, reason: string}[] = [];
 
 	try {
 		if (configData.err) {
 			await errorBase.manageError(
 				configData.err,
-				{location: "fileParser section of the engine"}
+				{location: "fileParser section of the engine"},
+				"WARN"
 			);
 		}
 
@@ -40,63 +60,76 @@ export const streamEngine = async (
 			const provider = configData.data?.config?.provider;
 			if (provider) {
 				if (provider === "archive") {
-					resolvedStream = await reliableCalls(
-						mediaObj,
-						(data, signal) => streamApi.movieApis.getFromArchive(data, intent, signal),
-						500
-					);
-
-					if (!resolvedStream) {
-						throw errorBase.createSectionError(
-							"Could not fetch downloadable stream from archive",
-							StreamErrorCode.PROVIDER_FAILED,
-							"PROVIDER_FAILED_TYPE_ERROR"
-						)
+					try {
+						resolvedStream = await reliableCalls(
+							mediaObj,
+							(data, signal) => streamApi.movieApis.getFromArchive(data, intent, signal),
+							12000
+						);
+					} catch(archErr: any) {
+						failedProviders.push({
+							provider: "archive",
+							reason: extractReasonFromError(archErr,
+							"The user's preference source 'archive' could not provide any "
+							+ "downloadable stream")
+						});
 					}
 				} else {
-					resolvedStream = await reliableCalls(
-						mediaObj,
-						(data, signal) => streamApi.movieApis.getFromTorrent(data, intent, signal),
-						500
-					);
-
-					if (!resolvedStream) {
-						throw errorBase.createSectionError(
-							"Could not fetch downloadable stream from archive",
-							StreamErrorCode.PROVIDER_FAILED,
-							"PROVIDER_FAILED_TYPE_ERROR"
-						)
-					}
-				}
-
-				if (resolvedStream) {
-						stream = {
-					success: true,
-					stream: resolvedStream,
-					intent
-					}
-				}
-			} else {
-				resolvedStream = await reliableCalls(
-						mediaObj,
-						(data, signal) => streamApi.movieApis.getFromArchive(data, intent, signal),
-						500
-					);
-					if (!resolvedStream) {
+					try {
 						resolvedStream = await reliableCalls(
 							mediaObj,
 							(data, signal) => streamApi.movieApis.getFromTorrent(data, intent, signal),
-							500
+							15000
 						);
+					} catch(torrErr: any) {
+						failedProviders.push({
+							provider: "torrentio",
+							reason: extractReasonFromError(torrErr,
+							"The user's preference 'torrentio' could not provide any "
+							+ "downloadable stream")
+						});
 					}
+				}
 
-					if (!resolvedStream) {
-						throw errorBase.createSectionError(
-							"Failed to resolve stream from the availaible downloadable stream sources",
-							StreamErrorCode.PROVIDER_FAILED,
-							"PROVIDER_FAILED_TYPE_ERROR"
-						)
+			} else {
+				try {
+					resolvedStream = await reliableCalls(
+							mediaObj,
+							(data, signal) => streamApi.movieApis.getFromArchive(data, intent, signal),
+							12000
+					);
+					} catch(archErr: any) {
+						failedProviders.push({
+							provider: "archive",
+							reason: extractReasonFromError(archErr,
+							"Unable fetch downloadable stream from archive"),
+						});
+				}
+
+				if (!resolvedStream) {	
+					try {
+						resolvedStream = await reliableCalls(
+							mediaObj,
+							(data, signal) => streamApi.movieApis.getFromTorrent(data, intent, signal),
+							15000
+						);
+					} catch(torrErr: any) {
+						failedProviders.push({
+							provider: "torrentio",
+							reason: extractReasonFromError(torrErr,
+							"Unable fetch downloadable stream from torrentio"),
+						});
 					}
+				}
+			}
+
+			if (!resolvedStream) {
+				throw errorBase.createSectionError(
+					"Failed to resolve stream from the availaible downloadable stream sources",
+					StreamErrorCode.PROVIDER_FAILED,
+					"PROVIDER_FAILED_TYPE_ERROR",
+					failedProviders,
+				);
 			}
 
 			stream = {success: true, stream: resolvedStream, intent}
@@ -104,7 +137,7 @@ export const streamEngine = async (
 			stream = await reliableCalls(
 				mediaObj,
 				(mediaObj, signal) => streamApi.getMediaStream({mediaObj, intent}, signal),
-				800
+				18000
 			);
 		}
 
@@ -122,12 +155,15 @@ export const streamEngine = async (
 		return streamResultManager(stream, configData.data.config) || stream;
 	} catch (engineErr) {
 		console.error("[STREAM_ENGINE_ERROR]: ", engineErr);
+		const level: ErrorLevel = engineErr instanceof StreamEngineError ?
+		engineErr.level : "SEVERE";
 		const managed = await errorBase.manageError(
 			engineErr,
 			{location: "Error caught and processed at main engine site",
 				mediaObj,
 				intent
-			}
+			},
+			level
 		);
 
 		return {
@@ -145,4 +181,6 @@ let mediaObj: MediaCategory = {
 	releaseYear: "2020",
 }
 
-await streamEngine(mediaObj, "watch");
+const stream = await streamEngine(mediaObj, "download");
+console.log(JSON.stringify(stream, null, 2));
+

@@ -39,7 +39,9 @@ export const fileParserSection = {
 				err: errorBase.createSectionError(
 					"No data provided",
 					StreamErrorCode.CONFIG_WRITE_ERROR,
-					"CONFIG_WRITE_TYPE_ERROR"
+					"CONFIG_WRITE_TYPE_ERROR",
+					undefined,
+					"WARN"
 				)
 			}
 		};
@@ -54,14 +56,16 @@ export const fileParserSection = {
 				fileExists = false;
 			}
 
-			let dataAlreadyExists = false, success = false, errMsg = null;
+			let dataAlreadyExists = false, success = false, writeErr = null;
 			if (!fileExists) {
 				await fs.open(filePath, "a")
 				.then(async (fd) => {
 					fileExists = true;
 					await fd.close();
 				})
-				.catch((writeSectionErr: any) => {
+				.catch((writeSectionErr: any) => writeErr = writeSectionErr);
+
+				if (writeErr) {
 					return {
 						success: false,
 						fileExists: false,
@@ -69,10 +73,10 @@ export const fileParserSection = {
 							"Error occured where file is to be opened and written to",
 							StreamErrorCode.CONFIG_WRITE_ERROR,
 							"CONFIG_WRITE_TYPE_ERROR",
-							writeSectionErr
-						)
-					}
-				});
+							writeErr
+						),
+					};
+				}
 
 			} else {
 				const existingData = await fileParser.readData<FileData>(filePath);
@@ -92,15 +96,12 @@ export const fileParserSection = {
 				fileExists,
 			}
 		} catch(writeSectionErr: any) {
-			return {
-				success: false,
-				err: errorBase.createSectionError(
+			throw errorBase.createSectionError(
 					"Failed to write user configurations to store",
 					StreamErrorCode.CONFIG_WRITE_ERROR,
 					"CONFIG_WRITE_TYPE_ERROR",
 					writeSectionErr,
-				)
-			};
+				);
 		}
 	},
 
@@ -115,6 +116,8 @@ export const fileParserSection = {
 					`The file '${fileName}' doesn't exist`,
 					StreamErrorCode.CONFIG_READ_ERROR,
 					"CONFIG_READ_TYPE_ERROR",
+					undefined,
+					"WARN"
 				)
 			};
 		};
@@ -125,17 +128,18 @@ export const fileParserSection = {
 			return { data: data ?? {config: null}, };
 		} catch (readSectionErr: any) {
 			throw errorBase.createSectionError(
-				"[StreamEngine_ReadSectionError]: Failed to read from from configuration\
-				file existing gracefully",
+				"[StreamEngine_ReadSectionError]: Failed to read from from configuration"
+				+ " file existing gracefully",
 				StreamErrorCode.CONFIG_READ_ERROR,
 				"CONFIG_READ_TYPE_ERROR",
 				readSectionErr
-			)
+			);
 		}
 	}
 }
 
-let data: MediaConfig | null = null;
+
+/*let data: MediaConfig | null = null;
 data = {
 	resolution: "4k",
 	format: "m3u8",
@@ -151,4 +155,5 @@ console.log(JSON.stringify(res, null, 2));
 
 let readData = null;
 readData = await fileParserSection.readFromFile()
-console.log("readData: ",JSON.stringify(readData, null, 2));
+console.log("readData: ",JSON.stringify(readData, null, 2));*/
+

@@ -33,6 +33,8 @@ export const streamResultManager = (
   });
 
   const sortedArr = priorityArr.map((p) => p.item);
+	if (!sortedArr?.length)
+		return stream;
 
 
 const mediaInfo = sortedArr[0];

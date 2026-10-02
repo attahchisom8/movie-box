@@ -265,7 +265,7 @@ export const movieApis = {
 				throw new Error(`No archive records found for ${title}${mediaObj.releaseYear ? ` ${mediaObj.releaseYear}` : ""}`);
 			const docs = response.docs;
 			const media = mediaObj.releaseYear ? (
-				docs.find((d: any) => String(mediaObj.releaseYear) === d.year.toString()) || docs[0]
+				docs.find((d: any) => String(mediaObj.releaseYear) === String(d.year)) || docs[0]
 			) : docs[0];
 			const identifier = media?.identifier;
 			if (!identifier)
@@ -319,6 +319,10 @@ export const movieApis = {
 					title: media?.title,
 				}
 			}).filter((q: any): q is STREAM.MediaInfo => q !== null);
+
+			if (!mediaInfos.length)
+				throw new Error("No valid media stream could be formatted from archive \
+			metadata");
 
 				const defaultMediaInfo = mediaInfos.find((mf) => {
 					return mf.quality === "1080"
@@ -474,7 +478,9 @@ signal?: AbortSignal
 	};
 }
 
-let mediaObj: MediaObj.MediaCategory = {
+
+
+/*let mediaObj: MediaObj.MediaCategory = {
 	type: "movie",
 	movieId: "969681",
 	releaseYear: "2020",
@@ -492,4 +498,4 @@ mediaObj = {
 	title: "spiderman"
 }
 const movie =  await getMediaStream({mediaObj, intent: "download"});
-console.log(JSON.stringify(movie, null, 2));
+console.log(JSON.stringify(movie, null, 2));*/

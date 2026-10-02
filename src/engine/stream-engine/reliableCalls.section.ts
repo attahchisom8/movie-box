@@ -2,7 +2,7 @@
  * by ensuring the query time dont exceed 500ms
  */
 
-import { StreamErrorCode } from "@/types/error.types";
+import { StreamEngineError, StreamErrorCode } from "@/types/error.types";
 import { errorBase } from "./errorBase.section";
 
 
@@ -14,14 +14,14 @@ export const reliableCalls = async <A, T>(
 	timeMs: number = 500
 ): Promise<T | null> => {
 	const abortController = new AbortController();
+	let timer: NodeJS.Timeout | undefined = undefined;
 
-	const timerPromise = new Promise<null>((resolve, reject) => {
-		setTimeout(() => {
+	const timerPromise = new Promise<null>((_, reject) => {
+		timer = setTimeout(() => {
 			abortController.abort();
-			resolve(null);
 
 			reject(errorBase.createSectionError(
-				`an error occured while resolving query, query aborted in ${timeMs}`,
+				`an error occured while resolving query, query aborted in ${timeMs}ms`,
 				StreamErrorCode.TIMEOUT,
 				"TIMEOUT_TYPE_ERROR"
 			))
@@ -34,14 +34,23 @@ export const reliableCalls = async <A, T>(
 			queryFunc(data, abortController.signal),
 			timerPromise
 		]);
+		clearTimeout(timer);
 
 		return result;
 	} catch(reliableCallErr: any) {
-		throw errorBase.createSectionError(
-			"Could not resolve host server, query aborted due to timeout error",
-			StreamErrorCode.TIMEOUT,
-			"TIMEOUT_TYPE_ERROR",
-			reliableCallErr,
-		);
+		clearTimeout(timer);
+		if (reliableCallErr instanceof StreamEngineError)
+			throw reliableCallErr;
+
+		if (abortController.signal.aborted) {
+			throw errorBase.createSectionError(
+				"Could not resolve host server, query aborted due to timeout error",
+				StreamErrorCode.TIMEOUT,
+				"TIMEOUT_TYPE_ERROR",
+				reliableCallErr,
+			);
+		};
+
+		throw reliableCallErr;
 	}
 }

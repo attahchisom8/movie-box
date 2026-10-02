@@ -8,7 +8,8 @@ import {
 	StreamEngineErrorTypes,
 	StreamErrorCode,
 	StreamEngineError,
-	ManagedErrorResult
+	ManagedErrorResult,
+	ErrorLevel
 } from "@/types/error.types";
 import { logger } from "../monitoring/logger";
 
@@ -18,17 +19,17 @@ import { logger } from "../monitoring/logger";
 
 
 const HUMAN_READABLE_MESSAGE: Record<StreamErrorCode, string> = {
-	[StreamErrorCode.TIMEOUT]: "The request took too long to fetch standard stream,\
-	please try again",
-	[StreamErrorCode.PROVIDER_FAILED]: "Failed to stream links from the several providers",
-	[StreamErrorCode.CONFIG_READ_ERROR]: "Could not read user stream preferences,\
-	default preferences applied",
-	[StreamErrorCode.CONFIG_WRITE_ERROR]: "Failed to write user preferences to store\
-	check your preferences and try again",
-	[StreamErrorCode.NO_STREAM_FOUND]: "No compatible video stream were found for this\
-	media",
-	[StreamErrorCode.UNKNOWN]: "An unexpected error occured while recieving the\
-	vidoe stream"
+	[StreamErrorCode.TIMEOUT]: "The request took too long to fetch standard stream, "
+	+ "please try again",
+	[StreamErrorCode.PROVIDER_FAILED]: "Failed to fetch streamable links from the several stream providers",
+	[StreamErrorCode.CONFIG_READ_ERROR]: "Could not read user stream preferences, "
+	+ "default preferences applied",
+	[StreamErrorCode.CONFIG_WRITE_ERROR]: "Failed to write user preferences to store "
+	+ "check your preferences and try again",
+	[StreamErrorCode.NO_STREAM_FOUND]: "No compatible video stream were found for this"
++ " media",
+	[StreamErrorCode.UNKNOWN]: "An unexpected error occured while recieving the "
+	+ "vidoe stream"
 };
 
 const LOG_FILE = "stream-engine.log";
@@ -42,6 +43,7 @@ export const errorBase = {
 		code: StreamErrorCode,
 		type: StreamEngineErrorTypes,
 		rawErr?: unknown,
+		level?: ErrorLevel
 	): StreamEngineError => {
 		const userMessage = HUMAN_READABLE_MESSAGE[code] ||
 		HUMAN_READABLE_MESSAGE[StreamErrorCode.UNKNOWN];
@@ -51,7 +53,8 @@ export const errorBase = {
 			devMessage,
 			userFriendlyMessage: userMessage,
 			type,
-			originalError: rawErr
+			originalError: rawErr,
+			level
 			
 		})
 	},
@@ -59,18 +62,22 @@ export const errorBase = {
 	/** Manages error */
 	manageError: async (
 		err: unknown,
-		context: Record<string, any>
+		context: Record<string, any>,
+		level?: ErrorLevel
 	): Promise<ManagedErrorResult> => {
 		let normalizedError: StreamEngineError;
 
 		if (err instanceof StreamEngineError) {
 			normalizedError = err;
+			if (level)
+				normalizedError.level = level;
 		} else if (err instanceof Error && err.name === "AbortError") {
 			normalizedError  = errorBase.createSectionError(
 				"Operation failed due to timeout",
 				StreamErrorCode.TIMEOUT,
 				"TIMEOUT_TYPE_ERROR",
 				err,
+				"WARN"
 			);
 		} else {
 			const rawMsg = err instanceof Error ? err?.message : String(err);
@@ -79,6 +86,7 @@ export const errorBase = {
 				StreamErrorCode.UNKNOWN,
 				"UNKNOWN_STREAM_TYPE_ERROR",
 				err,
+				"SEVERE"
 			);
 		}
 
