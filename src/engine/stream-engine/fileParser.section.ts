@@ -7,6 +7,7 @@ import path from "path";
 import { isDeepStrictEqual } from "util";
 import { errorBase } from "./errorBase.section";
 import { StreamEngineError, StreamErrorCode } from "@/types/error.types";
+import { withCoalescedInvoke } from "next/dist/lib/coalesced-function";
 
 
 export type FileData = {config: MediaConfig | null};
@@ -57,11 +58,18 @@ export const fileParserSection = {
 			}
 
 			let dataAlreadyExists = false, success = false, writeErr = null;
+			let fileHandler: fs.FileHandle | null = null;
 			if (!fileExists) {
 				await fs.open(filePath, "a")
-				.then(async (fd) => {
+				.then((fd) => {
 					fileExists = true;
-					await fd.close();
+					fileHandler = fd;
+				})
+				.finally(() => {
+					if (fileHandler)
+						fileHandler.close().catch((closeErr) => {
+					console.error("[FileParser] Failed to close config file: ", closeErr);
+					});
 				})
 				.catch((writeSectionErr: any) => writeErr = writeSectionErr);
 

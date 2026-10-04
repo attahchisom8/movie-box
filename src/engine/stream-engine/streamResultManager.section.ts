@@ -87,7 +87,7 @@ const getPriority = (item: MediaInfo, config: MediaConfig): number => {
 
 
 const getSeeders = (item: MediaInfo): number => {
-  if (!item.title)
+  if (!item?.title)
     return 0;
   const str_seeders = item.title.match(/👤\s*(\d+)/)?.[1] || "0";
 

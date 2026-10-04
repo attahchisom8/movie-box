@@ -34,11 +34,9 @@ export const reliableCalls = async <A, T>(
 			queryFunc(data, abortController.signal),
 			timerPromise
 		]);
-		clearTimeout(timer);
 
 		return result;
 	} catch(reliableCallErr: any) {
-		clearTimeout(timer);
 		if (reliableCallErr instanceof StreamEngineError)
 			throw reliableCallErr;
 
@@ -52,5 +50,7 @@ export const reliableCalls = async <A, T>(
 		};
 
 		throw reliableCallErr;
+	} finally {
+		clearTimeout(timer);
 	}
 }

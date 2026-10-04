@@ -1,0 +1,475 @@
+
+WHITE BOARDING THE SEARCH ENGINE
+===================================
+
+I have indeed learnt a lessson, defininng a global config file for users will mmake userA
+overwrite the config data userB once setted and is reading from especially when we are
+using a db nor is the user forced to login, even though i would love my users to mmake
+comments i guess i will have to use a sessionId snd alloow the user to choose any name
+else if default to sessiom  trunccated as the name
+
+
+Now back to the search engine architectural whiteboarding
+i  have a trailing and leading debounce as such
+
+cat src/utils/debounce.ts 
+/**
+ * 	a debounce js an utility function that can help us overcome
+ * rate limit by reducing the number of call we make to an api
+ * per sedond
+ * we have two types of this function
+ * --trailing debounce - this fures a request only once after the user has
+ * not typed for a certain time in miliseconds
+ * --leading debounce - this fires at the very start of the request every
+ * other subsequent request are ignored
+ * @param callbackFunc - a function that accept a list of arbitrary arv and
+ * returns anything. it aslo the sole function that makes the request
+ * @param delay: how long to wait in miliseconds of non api request
+ * @param option: An object that holds vALUES that determine if the is trailing,
+ * leading or both
+ * 
+ * Rrturn: a function whose return type is anythihg
+ */
+
+
+interface Option {
+	leading?: boolean;
+	trailing?: boolean;
+}
+
+export interface debounceFunction <M extends (...args: any[]) => any> {
+	(...args: Parameters<M>): void;
+	cancel: () => void;
+}
+
+export const debounce = <T extends (...args: any[]) => any>(
+	callbackFunc: T,
+	delay: number,
+	option: Option = {}
+): debounceFunction<T> => {
+	let timeRef: ReturnType<typeof setTimeout> | null = null;
+	const {leading = false, trailing = true} = option;
+	let lastArgs: Parameters<T> | null = null;
+	
+	const fn = (...args: Parameters<T>): void => {
+		const isFIrstCall = !timeRef;
+		lastArgs = args;
+
+		if (timeRef) {
+				clearTimeout(timeRef);
+			}
+
+		if (isFIrstCall && leading) {
+			callbackFunc(...args);
+			lastArgs = null;
+		}
+
+		timeRef = setTimeout(() => {
+			timeRef = null;
+
+			if (trailing && lastArgs) {
+				callbackFunc(...lastArgs);
+				lastArgs = null;
+			}
+		}, delay);
+	};
+
+	fn.cancel = () => {
+		if (timeRef) {
+			clearTimeout(timeRef);
+			timeRef = null;
+		}
+		lastArgs = null;
+	}
+
+	return fn;
+}
+
+
+const  searchFound = (query: string) => {
+	console.log(` ${query} is true`);
+}
+
+const debounceSearch = debounce(searchFound, 300);
+
+console.log("simulating rapis user typing...");
+debounceSearch("Gos is");
+debounceSearch("God is found");
+debounceSearch("God is found in Jesus christ");
+attah-chisom-moses@attah-chisom-moses-VirtualBox:~/movie-box
+$ 
+
+* i also haves types and constants like this
+
+ find . \( -wholename "./src/types/*.ts"  -o -wholename "./src/utils/constants.ts" \) -type f -exec cat {} \;
+/**
+ * A source of truth that contains configurations data, api mappins
+ * and fallback values
+ */
+
+import { AccessibityTheme } from '@/types/theme.types';
+
+
+export const REGIONAL_DATA = [
+	{
+		id: 'nollywood',
+		isoCode: 'NG',
+		displayName: 'NollyWood',
+		genreIds: [35, 18, 10749] // comwedy, drana, romance
+	},
+	{
+		id: 'hollwood',
+		isoCode: 'US',
+		displayName: 'Hollywood',
+		genreIds: [28, 12, 53, 878, 14, 1233, 10749, 27, 16, 10752],
+	},
+	{
+		id: 'bollywood',
+		isoCode: 'IN',
+		displayName: 'Bollywood',
+		genreIds: [28, 10749, 35, 9648, 27, 10751],
+	},
+	{
+		id: 'k_drama',
+		isoCode: 'KR',
+		displayName: 'K_Drama', // Hallyuwood
+		genreIds: [18, 12, 10749, 35],
+	},
+	{
+		id: 'cn',
+		isoCode: 'CN',
+		displayName: 'C_DRAMA', // Chollywood
+		genreIds: [18, 12, 10749, 35],
+	},
+	{
+		id: "au",
+		isoCode: 'AU',
+		displayName: "Australian Cinema",
+		genreIds: [28, 12, 35, 27, 10749],
+	},
+	{
+		id: 'fr',
+		isoCode: 'FR',
+		displayName: 'France cinema',
+		genreIds: [28, 18, 36, 35, 9715],
+	},
+	{
+		id: 'GB',
+		isoCode: 'GB',
+		displayName: 'Britwood',
+		genreIds: [28, 12, 53, 878, 14, 1233, 10749, 27, 16, 16, 10770, 10752,2064],
+	}
+] as const;
+
+
+export const REGION_BY_ISO_CODE = new Map(
+	REGIONAL_DATA.map((d) => [d.isoCode, d])
+);
+
+
+// Genre dictionary
+
+export const GENRE_LIB = {
+	story: {
+		'action': 28,
+		'adventure' : 12,
+		'comedy' : 35,
+		'crime' : 80,
+		'drama' : 18,
+		'traier' : 53,
+		'Tv movie': 10770,
+	},
+	vibe: {
+		romance: 10749,
+		mystery: 9648,
+		horror: 27,
+		animation: 16,
+		'family': 10751,
+	},
+	setting: {
+		'sci-fi': 878,
+		'fantasy': 14,
+		'western': 37,
+		'Documentry': 99,
+		'history': 36,
+		war: 10752,
+
+	}
+} as const;
+
+export const GENRE_NAME_BY_ID: Record<number, string> = {};
+for (const category of Object.values(GENRE_LIB)) {
+	Object.entries(category)
+		.forEach(([name, id]) => GENRE_NAME_BY_ID[Number(id)] = name);
+}
+
+// console.log(JSON.stringify(GENRE_NAME_BY_ID, null, 2));
+
+
+// TMDB DEFAULT URL
+export const TMDB_MOVIE_BASE_URL = 'https://api.themoviedb.org/3' as const;
+export const TMDB_IMAGE_BASE_URL = 'https://image.themoviedb.org/t/p' as const;
+
+
+// Here we handletmdb image connfigutation
+
+export const TMDB_IMAGE_CDN_BASE = {
+	poster: `${TMDB_IMAGE_BASE_URL}/w500`,
+	backdrop: `${TMDB_IMAGE_BASE_URL}/w1280`,
+	original: `${TMDB_IMAGE_BASE_URL}/original`,
+	fallbackPoster: `/images/placeholder.svg`,
+} as const;
+
+
+// theme setting and pretext
+
+export const DEFAULT_THEME: AccessibityTheme = {
+	textColor: '#fff',
+	bgColor: '#172155',
+	fontSize: 16,
+	fontWeight: 600,
+	fontFamily: ['sans' ,'Georgia', 'Helvetica Neue'],
+	letterSpacing: -1.5,
+} as const;
+
+
+export const ACCESSIBILTY_PRESET_THEME: AccessibityTheme = {
+	textColor: "#ffff00",
+	bgColor: "#000",
+	fontSize: 18,
+	fontWeight: 700,
+	fontFamily: ['sans', 'OPenDyslexic'],
+	letterSpacing: 1.5,
+} as const;/**
+ * provide the data structure or shape for global theme setting
+ */
+
+export interface AccessibityTheme {
+	textColor: string;
+	bgColor: string;
+	fontSize: number;
+	fontWeight: number;
+	fontFamily: string[];
+	letterSpacing: number;
+}/** THIS module holds configuration types and interfaces */
+
+import { VideoFormat, VideoQuality, StreamProvider } from "@/types/stream.types";
+type Provider = Extract<StreamProvider, "archive" | "torrentio">
+
+export type ConfigSize = "< 128mb" | "< 256mb" | "< 512mb" | "< 1024mb"
+| "< 5120mb" | "default";
+
+export interface MediaConfig {
+	resolution?: VideoQuality;
+	format?: VideoFormat;
+	size?: ConfigSize;
+	provider?: Provider;
+}/** Eror schemas */
+
+
+export enum StreamErrorCode {
+	TIMEOUT = "STREAM_TIMEOUT",
+	PROVIDER_FAILED = "PROVIDER_FAILED",
+	CONFIG_READ_ERROR = "CONFIG_READ_ERROR",
+	CONFIG_WRITE_ERROR = "CONFIG_WRITE_ERROR",
+	NO_STREAM_FOUND = "NO_STREAM_FOUND",
+	UNKNOWN = "UNKNOWN_STREAM_ERROR"
+};
+
+export type StreamEngineErrorTypes = "TIMEOUT_TYPE_ERROR" |
+"PROVIDER_FAILED_TYPE_ERROR" | "CONFIG_READ_TYPE_ERROR" | "NO_STREAM_FOUND_TYPE_ERROR"
+| "UNKNOWN_STREAM_TYPE_ERROR" | "CONFIG_WRITE_TYPE_ERROR";
+
+export type ErrorLevel = "INFO" | "WARN" | "ERROR" | "SEVERE";
+
+
+export interface StreamEngineErrorProperties {
+	code: StreamErrorCode;
+	devMessage: string;
+	userFriendlyMessage: string;
+	originalError: unknown;
+	type: StreamEngineErrorTypes;
+	level?: ErrorLevel;
+
+}
+
+export class StreamEngineError extends Error {
+	/* Here we initialize the properties of this class, note the paremt class
+	already has the property message SO super calls the parentconstructor with
+	the argument cevMessage
+	*/
+	public code: StreamErrorCode;
+	public userFriendlyMessage: string;
+	public originalError: unknown;
+	public type: StreamEngineErrorTypes;
+	public level: ErrorLevel;
+
+	constructor(props: StreamEngineErrorProperties) {
+		super(props.devMessage);
+		this.name = "StreamEngineError";
+		this.code = props.code;
+		this.userFriendlyMessage = props.userFriendlyMessage;
+		this.originalError = props.originalError;
+		this.type = props.type;
+		this.level = props.level ?? "ERROR";
+	}
+}
+
+export interface ManagedErrorResult {
+	code: StreamErrorCode;
+	usrMessage: string;
+	engineError: StreamEngineError;
+}
+
+/**
+ * THIs module defines movie structure and types
+ */
+
+export type MediaType = "movie" | "tv";
+
+export interface MovieCategory {
+	type: "movie",
+	title?: string;
+	movieId?: string;
+	releaseYear?: string;
+}
+
+export interface TvCategory {
+	type: "tv",
+	showId: number;
+	seasonNumber: number;
+	episodeNumber: number;
+}
+
+export type MediaCategory = MovieCategory | TvCategory | null;
+/**
+ * defines the data ormat of each movie as well as the
+ * data format of the movie in varios situations
+ */
+
+export interface TmdbMedia {
+	id: string;
+	title: string;
+	overview: string;
+	posterPath: string;
+	backdropPoster: string | null;
+	voteAverage: string;
+	releaseYear: string;
+	originalCountry: string[];
+	genreIds: string[];
+	trailerKey?: string;
+}
+
+export type RegionCode = 'NG' | 'IN' | 'BG' | 'US' | 'FR' | 'AU';
+
+export interface TmdbMediaCategory {
+	id: string;
+	label: string;
+	type: 'story' | 'vibe' | 'setting';
+	tmdbGenreId: string;
+}
+/**
+ * define the shape of reional data flow
+ */
+
+import { ECDH } from "crypto";
+import { EOF } from "dns";
+
+export interface RegionDataType {
+	id: string,
+	isoCode: string,
+	displayName: string,
+	genreIds: number[],
+}
+
+export interface GenreLibType {
+	story: Record<string, number>,
+	'vibe': Record<string, number>,
+	'setting': Record<string, number>,
+}/**
+ * defines the nature of data from streaming. theur sources
+ * and how they should work
+ */
+
+import { MediaType } from "./media.types";
+
+export type StreamProvider = 'vidsrc' | 'archive' | 'torrentio' | 'youtube';
+export type VideoQuality = "360" | "480" | "720" | "1080" | "1440" | "2k" | "2160" | "4k" | "auto";
+export type VideoFormat = "mp4" | "m3u8" | "mkv" | "mov" | "webm" |
+"avi" | "3gp" | "ogv" | "zip";
+
+export interface Quality {
+	resolution: VideoQuality;
+	format: VideoFormat;
+	url: string;
+}
+
+export interface MediaInfo {
+	quality: VideoQuality;
+	format: VideoFormat;
+	url: string;
+	duration?: string;
+	sizeInMegaBytes?: string;
+	fileName?: string;
+	releaseYear?: string;
+	title?: string;
+}
+
+export interface Subtitles {
+	fileUrl: string;
+	lang: string;
+	label: string;
+	format: string;
+}
+
+
+export interface ResolvedStream {
+	provider: StreamProvider;
+	streamUrl: string;
+	downloadUrl?: any;
+	isEmbedded: boolean;
+	trailerKey?: string;
+	mediaType: MediaType;
+	mediaInfo?: MediaInfo;
+	quality: Quality;
+	availableMediaInfos?: MediaInfo[];
+	subtitles?: Subtitles[]
+}
+
+export interface StreamResolutionResult {
+	success: boolean;
+	stream?: ResolvedStream;
+	intent?: "watch" | "download";
+	errMessage?: string;
+	errCode?: string;
+	failedProviders?: {provider: StreamProvider; reason: any}[];
+}
+attah-chisom-moses@attah-chisom-moses-VirtualBox:~/movie-box
+$ 
+
+
+SO WHEN A USER TYPES THE NAME OF A MOVIE WHAT HAPPENS?
+WHAT WE EXPECT
+===============
+1. each stroke of character written triggers an auto completion dialog
+2. The dialog can be new page in mobileview or a dropdown tab in desktop view
+3. the query api for all searches is TMDB
+
+PROPERTIES OF THE dialog
+==========================
+Of course this is left for when i start writing frontend code
+1. the dialog is scrollable
+2. it contains previous search query history
+3. Each movie in this tab han svg or a small pic/backdrop followed by the full title
+of the movie
+
+ACTIVIIIES CONNECTED TO SEARCH QUERYS
+=======================================
+
+i.	search history
+ii.	recent views perhaps
+iii.	caching
+iv.	f a search is made in homepage whith region code as all then, movie result
+from all regions whatever is presented is what the user gets.
+v.	but if a user is on a particular region tab are query are to tmdb specific to that
+region.

@@ -175,12 +175,4 @@ export const streamEngine = async (
 }
 
 
-let mediaObj: MediaCategory = {
-	type: "movie",
-	movieId: "969681",
-	releaseYear: "2020",
-}
-
-const stream = await streamEngine(mediaObj, "download");
-console.log(JSON.stringify(stream, null, 2));
 
