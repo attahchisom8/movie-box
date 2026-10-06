@@ -8,6 +8,12 @@ using a db nor is the user forced to login, even though i would love my users to
 comments i guess i will have to use a sessionId snd alloow the user to choose any name
 else if default to sessiom  trunccated as the name
 
+or better still make a function that cr3ates a user objecct like this
+{
+userName, sessionaid, comment 
+}
+this will indeed allow us t9 do more stuff in the future if need to giv3 more pruviledge to tge user but as of now tye user can only make comment watch or download videos
+
 
 Now back to the search engine architectural whiteboarding
 i  have a trailing and leading debounce as such
